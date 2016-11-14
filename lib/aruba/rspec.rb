@@ -95,7 +95,7 @@ RSpec.configure do |config|
   config.before :each do
     next unless self.class.include? Aruba::Api
 
-    prepend_environment_variable 'PATH', aruba.config.command_search_paths.join(':') + ':'
+    prepend_environment_variable 'PATH', aruba.config.command_search_paths.join(File::PATH_SEPARATOR) + File::PATH_SEPARATOR
   end
 
   # Use configured home directory as HOME
